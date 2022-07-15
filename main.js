@@ -3,14 +3,14 @@ var canvas = new fabric.Canvas('myCanvas');
 
 ball_y=0;
 ball_x=0;
-hole_y="400";
-hole_x="800";
+hole_y=400
+hole_x=800
 
 block_image_width = 5;
 block_image_height = 5;
 
 function load_img(){
-	fabric.Image.fromURL("golf-h1.png", function(Img) {
+	fabric.Image.fromURL("golf-h.png", function(Img) {
 		hole_obj = Img;
 		hole_obj.scaleToWidth(50);
 		hole_obj.scaleToHeight(50);
@@ -22,10 +22,10 @@ function load_img(){
 	});
 	new_image();
 }
-
+load_img();
 function new_image()
 {
-	fabric.Image.fromURL("ball_png", function(Img) {
+	fabric.Image.fromURL("ball.png", function(Img) {
 		ball_obj = Img;
 		ball_obj.scaleToWidth(50);
 		ball_obj.scaleToHeight(50);
@@ -33,7 +33,7 @@ function new_image()
 			top:ball_y,
 			left:ball_x
 				});
-      canvas.add(hole_obj)
+      canvas.add(ball_obj)
 	});
 }
 
@@ -43,7 +43,7 @@ function my_keydown(e)
 {
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
-	if((ball_x==hole__y)){
+	if((ball_x==hole_x)&&(ball_y==hole_y)){
 	    canvas.remove(ball_obj);
 		document.getElementById("hd3").innerHTML="You have Hit the Goal!!!";
 		document.getElementById("myCanvas").style.borderColor="red";
@@ -90,7 +90,7 @@ function my_keydown(e)
 	{
 		
 		{
-			{ if(ball_x >5) { ball_x = ball_x - block_image_width; console.log("block image width = " + block_image_width);
+			 if(ball_x >5) { ball_x = ball_x - block_image_width; console.log("block image width = " + block_image_width);
 			 console.log("When Left arrow key is pressed, X = " + ball_x + " , Y = "+ball_y);
 			 canvas.remove(ball_obj); new_image(); }
 		}
@@ -98,9 +98,9 @@ function my_keydown(e)
 
 	function right()
 	{
-		if(ball_x <=1050)
-		{
-			{ if(ball_x <=1050) { ball_x = ball_x + block_image_width; console.log("block image width = " + block_image_width);
+		
+		
+			 if(ball_x <=1050) { ball_x = ball_x + block_image_width; console.log("block image width = " + block_image_width);
 			 console.log("When Right arrow key is pressed, X = " + ball_x + " , Y = "+ball_y); 
 			canvas.remove(ball_obj); new_image(); } 
 	}
